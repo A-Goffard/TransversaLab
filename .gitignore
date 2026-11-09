@@ -9,3 +9,6 @@ Thumbs.db
 .vscode/
 .idea/
 *.tar
+
+# Notas privadas (pendientes, decisiones, servidor): solo en local
+NOTAS.md
