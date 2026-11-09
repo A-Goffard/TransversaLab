@@ -54,6 +54,9 @@ export function datosEstructurados(t) {
       'Neuroeducación',
       'Diseño Universal para el Aprendizaje',
       'Neurodiversidad',
+      'Neurodivergencia en personas adultas',
+      'Neurodivergencia en mujeres',
+      'Neuropsicología y educación',
       'Educación inclusiva',
       'Educación STEAM',
       'Inteligencia artificial en educación'

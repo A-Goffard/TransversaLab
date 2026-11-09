@@ -1,5 +1,5 @@
 <template>
-  <section id="como-trabajo" class="section section--alt" aria-labelledby="como-trabajo-titulo">
+  <section id="como-trabajo" class="section" aria-labelledby="como-trabajo-titulo">
     <div class="container">
       <div class="section__head">
         <h2 id="como-trabajo-titulo">{{ t.comoTrabajo.titulo }}</h2>

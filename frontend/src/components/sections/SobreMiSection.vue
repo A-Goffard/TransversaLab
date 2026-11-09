@@ -1,5 +1,5 @@
 <template>
-  <section id="sobre-mi" class="section" aria-labelledby="sobre-mi-titulo">
+  <section id="sobre-mi" class="section section--alt" aria-labelledby="sobre-mi-titulo">
     <div class="container sobre">
       <div class="sobre__foto">
         <!-- Cuando haya foto (contenido: sobreMi.foto), se muestra; si no, el infinito como marcador -->
@@ -25,11 +25,9 @@
           <strong>{{ t.sobreMi.nombre }}</strong> · {{ t.sobreMi.rol }}
         </p>
         <p v-for="(p, i) in t.sobreMi.parrafos" :key="i">{{ p }}</p>
+
         <p>
-          <a :href="t.sobreMi.enlace.url" class="sobre__enlace">
-            {{ t.sobreMi.enlace.texto }}
-            <AppIcon name="externo" />
-          </a>
+          <a :href="t.sobreMi.enlace.url" class="sobre__enlace">{{ t.sobreMi.enlace.texto }}<AppIcon name="externo" /></a>
         </p>
       </div>
     </div>
@@ -60,7 +58,8 @@ const t = useContenido()
 .sobre__marcador {
   aspect-ratio: 1;
   border-radius: 50%;
-  background: var(--surface-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
   display: grid;
   place-items: center;
   padding: 12%;

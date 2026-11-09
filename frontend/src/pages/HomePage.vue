@@ -1,6 +1,7 @@
 <template>
   <HeroSection />
   <ServiciosSection />
+  <EnfoqueSection />
   <SobreMiSection />
   <ComoTrabajoSection />
   <ContactoSection />
@@ -11,6 +12,7 @@ import { useContenido } from '../content/index.js'
 import { useSeo, datosEstructurados } from '../seo.js'
 import HeroSection from '../components/sections/HeroSection.vue'
 import ServiciosSection from '../components/sections/ServiciosSection.vue'
+import EnfoqueSection from '../components/sections/EnfoqueSection.vue'
 import SobreMiSection from '../components/sections/SobreMiSection.vue'
 import ComoTrabajoSection from '../components/sections/ComoTrabajoSection.vue'
 import ContactoSection from '../components/sections/ContactoSection.vue'

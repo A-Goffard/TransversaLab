@@ -1,5 +1,5 @@
 <template>
-  <section id="contacto" class="section" aria-labelledby="contacto-titulo">
+  <section id="contacto" class="section section--alt" aria-labelledby="contacto-titulo">
     <div class="container">
       <div class="contacto">
         <div class="contacto__texto">

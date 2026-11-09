@@ -16,6 +16,7 @@ export default {
     inicioEtiqueta: 'TransversaLab, ir al inicio',
     menu: [
       { id: 'servicios', texto: 'Servicios' },
+      { id: 'enfoque', texto: 'Mi enfoque' },
       { id: 'sobre-mi', texto: 'Sobre mí' },
       { id: 'como-trabajo', texto: 'Cómo trabajo' }
     ],
@@ -25,7 +26,7 @@ export default {
   // ---- Portada ----
   hero: {
     antetitulo: 'Neuroeducación · DUA · Neurodiversidad',
-    titulo: 'Formación, acompañamiento y asesoramiento en neuroeducación, DUA y neurodiversidad para centros, docentes y familias.',
+    titulo: 'Formación, acompañamiento y asesoramiento en neuroeducación, DUA y neurodiversidad para centros, docentes, familias y personas adultas.',
     texto: 'Presencial en Bizkaia y online desde cualquier lugar, en castellano y euskera.',
     botonPrincipal: 'Contacta conmigo',
     botonSecundario: 'Ver servicios'
@@ -34,7 +35,7 @@ export default {
   // ---- Servicios ----
   servicios: {
     titulo: 'Servicios',
-    intro: 'Tres formas de trabajar juntas para que el aprendizaje sea accesible para todo el alumnado.',
+    intro: 'Acompaño a quienes enseñan y a quienes aprenden, dentro y fuera del aula.',
     lista: [
       {
         id: 'formacion',
@@ -44,7 +45,7 @@ export default {
         descripcion: 'Cursos y sesiones para claustros y equipos docentes, en formato presencial u online.',
         puntos: [
           'Diseño Universal para el Aprendizaje (DUA)',
-          'Neurodivergencias en el aula',
+          'Neurodivergencias en el aula, también las que no se ven',
           'Metodologías STEAM',
           'Inteligencia artificial en educación'
         ]
@@ -63,18 +64,39 @@ export default {
         ]
       },
       {
-        id: 'familias',
+        id: 'personas',
         icono: 'familias',
         color: 'frambuesa',
-        titulo: 'Acompañamiento a familias',
-        descripcion: 'Orientación a familias de niños, niñas y adolescentes neurodivergentes.',
+        titulo: 'Acompañamiento a personas adultas y familias',
+        descripcion: 'Orientación a personas adultas neurodivergentes, con o sin diagnóstico, y a familias de niñas, niños y adolescentes. Con especial atención a las mujeres adultas y a las madres.',
         puntos: [
-          'Orientación y resolución de dudas',
-          'Estrategias para el día a día',
+          'Comprender tu forma de funcionar, con o sin diagnóstico',
+          'Estrategias para el trabajo, los estudios y el día a día',
+          'Apoyo a madres y padres de hijas e hijos neurodivergentes',
           'Coordinación con el centro educativo'
         ]
       }
     ]
+  },
+
+  // ---- Mi enfoque: neurodivergencias que no se ven ----
+  enfoque: {
+    antetitulo: 'Mi especialización',
+    titulo: 'Neurodivergencias que no se ven',
+    parrafos: [
+      'Hay personas que llevan toda la vida sintiéndose diferentes sin saber por qué. Su TDAH, su autismo, su dislexia o sus altas capacidades no se detectaron en el colegio ni en la consulta, porque aprendieron a compensar y a disimular. Por fuera parece que todo va bien; por dentro, el esfuerzo es enorme.',
+      'Ocurre sobre todo en niñas y mujeres, que durante años han quedado fuera de los criterios de detección y de la mirada de los servicios educativos y sanitarios. Muchas lo descubren de adultas, a menudo cuando una hija o un hijo recibe un diagnóstico.',
+      'Por eso me estoy especializando en estas neurodivergencias invisibles: para ofrecer lo que tantas veces falta, que es tiempo, escucha y comprensión.'
+    ],
+    acompanoTitulo: 'Cómo te acompaño',
+    acompano: [
+      'Entender tu forma de pensar, sentir y aprender, con o sin diagnóstico.',
+      'Encontrar estrategias realistas para el trabajo, los estudios y la vida diaria.',
+      'Poner palabras a lo que vives para explicarlo en casa, en el trabajo o en el centro educativo.',
+      'Orientarte hacia profesionales sanitarios cuando haga falta una evaluación.'
+    ],
+    // Importante: deja claro que el trabajo es educativo, no clínico (ver NOTAS.md)
+    nota: 'No realizo diagnósticos clínicos. Mi trabajo es educativo y de acompañamiento, y complementa el de los profesionales sanitarios.'
   },
 
   // ---- Sobre mí ----
@@ -85,7 +107,14 @@ export default {
     rol: 'Docente y diseñadora pedagógica STEAM',
     parrafos: [
       'Soy docente y diseñadora pedagógica STEAM. También soy geóloga y desarrolladora, y esa mezcla me ha enseñado a mirar el aprendizaje desde muchos ángulos.',
-      'En TransversaLab uno la neuroeducación, el Diseño Universal para el Aprendizaje y la experiencia en el aula para ayudar a centros, docentes y familias a crear entornos donde cada persona pueda aprender a su manera.'
+      'Estoy cursando el Máster Universitario en Neuropsicología y Educación, y centro mi especialización en las neurodivergencias que pasan desapercibidas, sobre todo en mujeres adultas.',
+      'En TransversaLab uno la neuroeducación, el Diseño Universal para el Aprendizaje y la experiencia en el aula para ayudar a centros, docentes, familias y personas adultas a crear entornos donde cada cual pueda aprender y vivir a su manera.'
+    ],
+    formacionTitulo: 'Formación',
+    formacion: [
+      { titulo: 'Máster Universitario en Neuropsicología y Educación', centro: 'UNIR', nota: 'En curso' },
+      { titulo: 'Máster Universitario en Formación del Profesorado', centro: 'VIU' },
+      { titulo: 'Licenciatura en Geología', centro: 'UPV/EHU' }
     ],
     // Cuando tengas la foto: ponla en public/imagenes/ y escribe aquí su nombre (sin extensión),
     // por ejemplo 'aintzane'. Debe existir en .avif y .webp. Mientras sea null se muestra el infinito.
@@ -156,7 +185,7 @@ export default {
   seo: {
     inicio: {
       titulo: 'TransversaLab | Neuroeducación, DUA y neurodiversidad en Bizkaia',
-      descripcion: 'Formación, acompañamiento y asesoramiento en neuroeducación, DUA y neurodiversidad para centros, docentes y familias. Presencial en Bizkaia y online.'
+      descripcion: 'Formación, acompañamiento y asesoramiento en neuroeducación, DUA y neurodiversidad para centros, docentes, familias y personas adultas. Bizkaia y online.'
     },
     avisoLegal: {
       titulo: 'Aviso legal | TransversaLab',
