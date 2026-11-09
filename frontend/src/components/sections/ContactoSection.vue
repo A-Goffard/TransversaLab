@@ -12,7 +12,16 @@
             <AppIcon name="correo" />
             <div>
               <span class="contacto__etiqueta">{{ t.contacto.emailEtiqueta }}</span>
-              <a :href="`mailto:${t.contacto.email}`" class="contacto__valor">{{ t.contacto.email }}</a>
+              <a :href="`mailto:${t.contacto.email}`" class="contacto__valor" ref="emailEl">{{ t.contacto.email }}</a>
+              <!-- Por si el enlace no abre ningún programa de correo: botón para copiar la dirección.
+                   Solo aparece cuando hay JavaScript (sin JS no podría funcionar). -->
+              <span v-if="montado" class="contacto__copiar">
+                <button type="button" class="btn btn--secundario btn--peque" @click="copiar">
+                  <AppIcon name="copiar" />
+                  {{ t.contacto.copiar }}
+                </button>
+                <span class="contacto__estado" role="status" aria-live="polite">{{ estado }}</span>
+              </span>
             </div>
           </li>
           <!-- El teléfono solo aparece cuando se rellena en content/es.js -->
@@ -30,10 +39,34 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import { useContenido } from '../../content/index.js'
 import AppIcon from '../AppIcon.vue'
 
 const t = useContenido()
+const montado = ref(false)
+const estado = ref('')
+const emailEl = ref(null)
+let temporizador
+
+onMounted(() => { montado.value = true })
+
+async function copiar() {
+  try {
+    await navigator.clipboard.writeText(t.contacto.email)
+    estado.value = t.contacto.copiado
+  } catch {
+    // Si el navegador no deja copiar, seleccionamos la dirección para que se pueda copiar a mano
+    const sel = window.getSelection()
+    const rango = document.createRange()
+    rango.selectNodeContents(emailEl.value)
+    sel.removeAllRanges()
+    sel.addRange(rango)
+    estado.value = t.contacto.copiaManual
+  }
+  clearTimeout(temporizador)
+  temporizador = setTimeout(() => { estado.value = '' }, 4000)
+}
 </script>
 
 <style scoped>
@@ -76,4 +109,14 @@ const t = useContenido()
   overflow-wrap: anywhere;
   padding-block: 0.2rem;
 }
+
+.contacto__copiar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-top: 0.5rem;
+}
+.btn--peque { min-height: 44px; padding: 0.4rem 0.9rem; font-size: var(--step--1); }
+.contacto__estado { color: var(--turquesa); font-weight: 700; font-size: var(--step--1); }
 </style>

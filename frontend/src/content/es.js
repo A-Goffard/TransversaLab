@@ -125,6 +125,9 @@ export default {
     texto: 'Cuéntame qué necesitas y te respondo lo antes posible.',
     emailEtiqueta: 'Correo electrónico',
     email: 'info@transversalab.com',
+    copiar: 'Copiar',
+    copiado: 'Correo copiado',
+    copiaManual: 'Pulsa Ctrl + C para copiarlo',
     telefonoEtiqueta: 'Teléfono',
     // Cuando quieras mostrar un teléfono, escríbelo aquí, por ejemplo: '+34 600 000 000'
     telefono: null
