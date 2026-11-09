@@ -1,0 +1,68 @@
+/* ============================================================
+   TransversaLab · sistema de diseño
+   Paleta: violeta orquídea + turquesa + frambuesa (contraste WCAG AA o superior)
+   Tipos: Atkinson Hyperlegible Next (texto, diseñada para baja visión)
+          Baloo 2 (solo el logotipo)
+   El modo oscuro se activa solo, según la preferencia del sistema.
+   ============================================================ */
+
+:root {
+  /* Colores: modo claro */
+  --bg: #FAF8FC;
+  --surface: #FFFFFF;
+  --surface-2: #F5ECFA;
+  --fg: #221A33;            /* 15,8:1 sobre el fondo */
+  --muted: #5E5670;         /*  6,5:1 */
+  --line: #E9E1F0;
+  --primary: #8A2BC2;       /*  6,2:1 · violeta orquídea */
+  --primary-hover: #7322A3;
+  --on-primary: #FFFFFF;    /*  6,6:1 sobre el violeta */
+  --turquesa: #0E6E66;      /*  5,8:1 */
+  --frambuesa: #A8326E;     /*  6,0:1 */
+  --focus: #8A2BC2;
+  --logo-edge: #000000;     /* reborde de las letras del logo */
+  --logo-lab: var(--primary);
+  --img-filter: none;
+  --shadow: 0 1px 2px rgb(34 26 51 / 0.05), 0 10px 30px rgb(34 26 51 / 0.07);
+
+  /* Tipografía */
+  --font-sans: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-logo: 'Baloo 2', 'Arial Rounded MT Bold', system-ui, sans-serif;
+  --step--1: 0.9375rem;                               /* 15 px */
+  --step-0: 1.125rem;                                 /* 18 px: texto base */
+  --step-1: 1.3125rem;                                /* 21 px */
+  --step-2: clamp(1.625rem, 1.35rem + 1.2vw, 2.125rem);
+  --step-3: clamp(1.875rem, 1.4rem + 2.3vw, 2.875rem);
+
+  /* Espaciado y formas */
+  --space-section: clamp(4rem, 3rem + 4vw, 6.5rem);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --header-h: 72px;
+  --container: 1120px;
+  --gutter: clamp(16px, 4vw, 32px);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17121F;
+    --surface: #211A2C;
+    --surface-2: #261E34;
+    --fg: #EFEAF6;          /* 15,6:1 */
+    --muted: #B8AFC8;       /*  8,8:1 */
+    --line: #352C44;
+    --primary: #D9A8F7;     /*  9,5:1 */
+    --primary-hover: #E8C6FB;
+    --on-primary: #17121F;
+    --turquesa: #6FD8CC;    /* 10,8:1 */
+    --frambuesa: #F39CC6;   /*  9,1:1 */
+    --focus: #D9A8F7;
+    --logo-edge: #0B0810;   /* casi invisible sobre el fondo oscuro: las letras no cambian de forma */
+    --img-filter: brightness(1.35) saturate(1.1); /* aviva el violeta y azul del infinito */
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 30px rgb(0 0 0 / 0.25);
+
+    color-scheme: dark;
+  }
+}

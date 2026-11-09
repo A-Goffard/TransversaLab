@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Infinito simplificado para la pestaña del navegador (el original no se distingue a 16 px) -->
+  <defs>
+    <linearGradient id="arcoiris" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#D7263D"/>
+      <stop offset=".22" stop-color="#F28C28"/>
+      <stop offset=".42" stop-color="#E5B800"/>
+      <stop offset=".52" stop-color="#2E9E44"/>
+      <stop offset=".72" stop-color="#1D6FB8"/>
+      <stop offset="1" stop-color="#7B2FA8"/>
+    </linearGradient>
+  </defs>
+  <path d="M50 50 C62 32 92 30 92 50 C92 70 62 68 50 50 C38 32 8 30 8 50 C8 70 38 68 50 50 Z"
+        fill="none" stroke="url(#arcoiris)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

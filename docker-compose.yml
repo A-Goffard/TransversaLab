@@ -1,0 +1,15 @@
+# Nombre de proyecto fijo: no depende de la carpeta y no se mezcla con Geobizi ni con el portfolio
+name: transversalab
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+    image: transversalab-frontend
+    container_name: transversalab_frontend
+    ports:
+      # Solo accesible desde el propio VPS: el Nginx del sistema hace de proxy (con SSL).
+      # Puertos ya ocupados en el VPS: 8080 y 5000 (Geobizi), 8081 (portfolio).
+      - "127.0.0.1:8082:80"
+    restart: always

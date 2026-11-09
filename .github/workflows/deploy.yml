@@ -1,0 +1,75 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Nunca dos despliegues a la vez (si haces dos push seguidos, el segundo espera)
+concurrency:
+  group: deploy-transversalab
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          # Opcional: huella del servidor. Si el secret no existe, no se comprueba.
+          fingerprint: ${{ secrets.VPS_FINGERPRINT }}
+          port: 22
+          command_timeout: 20m
+          script: |
+            set -e
+            APP_DIR=/root/transversalab
+            PUERTO=8082
+
+            if [ ! -d "$APP_DIR/.git" ]; then
+              echo "❌ No existe $APP_DIR. Clona antes el repositorio en el VPS (ver README)."
+              exit 1
+            fi
+            cd "$APP_DIR"
+
+            git fetch origin main
+            git reset --hard origin/main
+
+            # 1. Construir primero: si falla, la web actual sigue funcionando
+            docker compose build --pull
+
+            # 2. Levantar (o sustituir) el contenedor en 127.0.0.1:8082
+            docker compose up -d --force-recreate --remove-orphans
+
+            # 3. Comprobar que la portada responde dentro del VPS
+            ok=0
+            for i in 1 2 3 4 5 6 7 8 9 10; do
+              if curl -fsS -o /dev/null http://127.0.0.1:$PUERTO/; then ok=1; break; fi
+              sleep 2
+            done
+            if [ "$ok" != "1" ]; then
+              echo "❌ La web no responde en 127.0.0.1:$PUERTO"
+              docker compose ps
+              docker compose logs --tail=100
+              exit 1
+            fi
+
+            # 4. Comprobar que una página inexistente devuelve 404 de verdad (evita Soft 404)
+            codigo=$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:$PUERTO/pagina-que-no-existe)
+            if [ "$codigo" != "404" ]; then
+              echo "❌ Una URL inexistente devuelve $codigo en vez de 404"
+              exit 1
+            fi
+
+            # 5. Limpieza para no llenar el disco
+            docker image prune -f                                # imágenes sin etiqueta (versiones viejas)
+            docker builder prune -af --filter "until=24h"        # caché de compilación de más de 1 día
+
+            docker compose ps
+            df -h / | tail -1
+            echo "✅ Despliegue completado"
