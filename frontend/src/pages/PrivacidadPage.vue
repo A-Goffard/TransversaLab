@@ -2,7 +2,6 @@
   <article class="section">
     <div class="container prose">
       <h1>Política de privacidad</h1>
-      <p class="aviso-pendiente" role="note">{{ t.pendiente }}</p>
 
       <!-- PROVISIONAL: completar los datos marcados [PENDIENTE] y revisar el texto completo -->
       <h2>Resumen</h2>
@@ -16,7 +15,7 @@
       <h2>Responsable del tratamiento</h2>
       <ul>
         <li>Aintzane Goffard Sevillano (TransversaLab)</li>
-        <li>NIF: [PENDIENTE]</li>
+        <li>NIF: 78909557F</li>
         <li>Correo electrónico: <a :href="`mailto:${t.contacto.email}`">{{ t.contacto.email }}</a></li>
       </ul>
 
@@ -42,7 +41,7 @@
       <h2>Con quién se comparten</h2>
       <p>
         No cedo tus datos a terceros salvo obligación legal. El alojamiento web y el correo electrónico los
-        presta [PENDIENTE: proveedor], que actúa como encargado del tratamiento.
+        presta Piensa Solutions, que actúa como encargado del tratamiento.
       </p>
 
       <h2>Registros del servidor</h2>

@@ -2,7 +2,7 @@
   <article class="section">
     <div class="container prose">
       <h1>Aviso legal</h1>
-      <p class="aviso-pendiente" role="note">{{ t.pendiente }}</p>
+
 
       <!-- PROVISIONAL: completar los datos marcados [PENDIENTE] y revisar el texto completo -->
       <h2>Titular del sitio web</h2>
@@ -13,8 +13,8 @@
       <ul>
         <li>Titular: Aintzane Goffard Sevillano</li>
         <li>Nombre comercial: TransversaLab</li>
-        <li>NIF: [PENDIENTE]</li>
-        <li>Domicilio: [PENDIENTE]</li>
+        <li>NIF: 78909557F</li>
+        <li>Domicilio: Calle Enkarterri N3 bis, 48840 Güeñes, Bizkaia</li>
         <li>Correo electrónico: <a :href="`mailto:${t.contacto.email}`">{{ t.contacto.email }}</a></li>
       </ul>
 

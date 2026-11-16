@@ -2,6 +2,9 @@
   <footer class="footer">
     <div class="container footer__inner">
       <p class="footer__marca">© {{ anio }} {{ t.marca }}</p>
+              <p>By <a class="footer-link-Geobizi" href="https://www.geobizi.com" target="_blank"
+            rel="noopener noreferrer">Geobizi&lt;TIK&gt;<img class="logo-geobizi" src="/imagenes/Hojitas.png"
+              alt="Hojitas"></a></p>
       <nav :aria-label="t.pie.enlacesEtiqueta">
         <ul class="footer__links">
           <li><a href="/aviso-legal">{{ t.pie.avisoLegal }}</a></li>
@@ -43,4 +46,16 @@ const anio = new Date().getFullYear()
   gap: 0.5rem 1.5rem;
 }
 .footer__links a { display: inline-block; padding-block: 0.4rem; }
+
+.footer-link-Geobizi {
+  display: inline-flex;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.logo-geobizi {
+
+  height: 17px;
+
+}
 </style>
